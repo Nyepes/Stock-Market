@@ -15,6 +15,7 @@
 		37F4CB6F22D4FEF100A30027 /* Stock_MarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB6E22D4FEF100A30027 /* Stock_MarketTests.swift */; };
 		37F4CB7A22D4FEF100A30027 /* Stock_MarketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB7922D4FEF100A30027 /* Stock_MarketUITests.swift */; };
 		37F4CB8822D50D9600A30027 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB8722D50D9600A30027 /* SwiftyJSON.swift */; };
+		37F4CB8A22D51CE800A30027 /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB8922D51CE800A30027 /* StockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		37F4CB7922D4FEF100A30027 /* Stock_MarketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_MarketUITests.swift; sourceTree = "<group>"; };
 		37F4CB7B22D4FEF100A30027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37F4CB8722D50D9600A30027 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		37F4CB8922D51CE800A30027 /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				37F4CB5922D4FEEF00A30027 /* AppDelegate.swift */,
 				37F4CB5B22D4FEEF00A30027 /* SymbolsViewController.swift */,
+				37F4CB8922D51CE800A30027 /* StockViewController.swift */,
 				37F4CB5D22D4FEEF00A30027 /* Main.storyboard */,
 				37F4CB6022D4FEF100A30027 /* Assets.xcassets */,
 				37F4CB6222D4FEF100A30027 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				37F4CB8822D50D9600A30027 /* SwiftyJSON.swift in Sources */,
 				37F4CB5C22D4FEEF00A30027 /* SymbolsViewController.swift in Sources */,
 				37F4CB5A22D4FEEF00A30027 /* AppDelegate.swift in Sources */,
+				37F4CB8A22D51CE800A30027 /* StockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
