@@ -16,9 +16,32 @@ class SymbolsViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Stock Market"
         let query = "https://financialmodelingprep.com/api/v3/company/stock/list"
-        
+        if let url = URL(string: query) {
+            if let data = try? Data(contentsOf: url) {
+                let json = try! JSON(data)
+                parse(json: json)
+                return
+            }
+        }
+        loadError()
     }
-
+    func parse(json: JSON) {
+        for result in json["symbolsList"].arrayValue {
+            let id = result["symbol"].stringValue
+            let price = result["price"].stringValue
+            let symbol = ["symbol" : id, "price" : price]
+            symbols.append(symbol)
+            
+            
+        }
+        tableView.reloadData()
+    }
+    func loadError() {
+        let alert = UIAlertController(title: "Loading Error", message: "There was a problem loading the feed", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated:  true, completion: nil)
+    }
+    
 
 }
 
