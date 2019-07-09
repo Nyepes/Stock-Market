@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		37F4CB5A22D4FEEF00A30027 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB5922D4FEEF00A30027 /* AppDelegate.swift */; };
-		37F4CB5C22D4FEEF00A30027 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB5B22D4FEEF00A30027 /* ViewController.swift */; };
+		37F4CB5C22D4FEEF00A30027 /* SymbolsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB5B22D4FEEF00A30027 /* SymbolsViewController.swift */; };
 		37F4CB5F22D4FEEF00A30027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F4CB5D22D4FEEF00A30027 /* Main.storyboard */; };
 		37F4CB6122D4FEF100A30027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37F4CB6022D4FEF100A30027 /* Assets.xcassets */; };
 		37F4CB6422D4FEF100A30027 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F4CB6222D4FEF100A30027 /* LaunchScreen.storyboard */; };
 		37F4CB6F22D4FEF100A30027 /* Stock_MarketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB6E22D4FEF100A30027 /* Stock_MarketTests.swift */; };
 		37F4CB7A22D4FEF100A30027 /* Stock_MarketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB7922D4FEF100A30027 /* Stock_MarketUITests.swift */; };
+		37F4CB8822D50D9600A30027 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F4CB8722D50D9600A30027 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		37F4CB5622D4FEEF00A30027 /* Stock Market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stock Market.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F4CB5922D4FEEF00A30027 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37F4CB5B22D4FEEF00A30027 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37F4CB5B22D4FEEF00A30027 /* SymbolsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolsViewController.swift; sourceTree = "<group>"; };
 		37F4CB5E22D4FEEF00A30027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37F4CB6022D4FEF100A30027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37F4CB6322D4FEF100A30027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		37F4CB7522D4FEF100A30027 /* Stock MarketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stock MarketUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F4CB7922D4FEF100A30027 /* Stock_MarketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock_MarketUITests.swift; sourceTree = "<group>"; };
 		37F4CB7B22D4FEF100A30027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37F4CB8722D50D9600A30027 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				37F4CB5922D4FEEF00A30027 /* AppDelegate.swift */,
-				37F4CB5B22D4FEEF00A30027 /* ViewController.swift */,
+				37F4CB5B22D4FEEF00A30027 /* SymbolsViewController.swift */,
 				37F4CB5D22D4FEEF00A30027 /* Main.storyboard */,
 				37F4CB6022D4FEF100A30027 /* Assets.xcassets */,
 				37F4CB6222D4FEF100A30027 /* LaunchScreen.storyboard */,
 				37F4CB6522D4FEF100A30027 /* Info.plist */,
+				37F4CB8722D50D9600A30027 /* SwiftyJSON.swift */,
 			);
 			path = "Stock Market";
 			sourceTree = "<group>";
@@ -256,7 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37F4CB5C22D4FEEF00A30027 /* ViewController.swift in Sources */,
+				37F4CB8822D50D9600A30027 /* SwiftyJSON.swift in Sources */,
+				37F4CB5C22D4FEEF00A30027 /* SymbolsViewController.swift in Sources */,
 				37F4CB5A22D4FEEF00A30027 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
