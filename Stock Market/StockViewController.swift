@@ -12,12 +12,11 @@ class StockViewController: UITableViewController {
     
     var stocks = [[String: String]]()
     var symbols = [String: String]()
-    let query = "https://financialmodelingprep.com/api/v3/company/stock/list"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Stock"
-        let query = "https://financialmodelingprep.com/api/v3/company/stock/list"
+        let query = "https://financialmodelingprep.com/api/v3/company/profile/\(symbols["id"])"
         DispatchQueue.global(qos: .userInitiated).async {
             [unowned self] in
             if let url = URL(string: query) {
@@ -31,12 +30,12 @@ class StockViewController: UITableViewController {
         }
     }
     func parse(json: JSON) {
-        for result in json["symbolsList"].arrayValue {
-            let id = result["symbol"].stringValue
+        for result in json["profile"].arrayValue {
+            let mktCap = result["mktCap"].stringValue
             let price = result["price"].stringValue
-            let name = result["name"].stringValue
-            let symbol = ["symbol" : id, "price" : price, "name" : name]
-            stocks.append(symbol)
+            let compName = result["companyName"].stringValue
+            let stock = ["mktCap" : mktCap, "price" : price, "companyName" : compName]
+            stocks.append(stock)
         }
         DispatchQueue.main.async {
             [unowned self] in
