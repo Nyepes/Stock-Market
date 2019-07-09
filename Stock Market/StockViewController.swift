@@ -11,7 +11,7 @@ import UIKit
 class StockViewController: UITableViewController {
     
     var stocks = [[String: String]]()
-    var symbols = [[String: String]]()
+    var symbols = [String: String]()
     let query = "https://financialmodelingprep.com/api/v3/company/stock/list"
     
     override func viewDidLoad() {
