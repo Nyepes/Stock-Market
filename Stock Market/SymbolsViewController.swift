@@ -16,14 +16,17 @@ class SymbolsViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Stock Market"
         let query = "https://financialmodelingprep.com/api/v3/company/stock/list"
-        if let url = URL(string: query) {
-            if let data = try? Data(contentsOf: url) {
-                let json = try! JSON(data)
-                parse(json: json)
-                return
+        DispatchQueue.global(qos: .userInitiated).async {
+            [unowned self] in
+            if let url = URL(string: query) {
+                if let data = try? Data(contentsOf: url) {
+                    let json = try! JSON(data)
+                    self.parse(json: json)
+                    return
+                }
             }
+            self.loadError()
         }
-        loadError()
     }
     func parse(json: JSON) {
         for result in json["symbolsList"].arrayValue {
@@ -31,15 +34,17 @@ class SymbolsViewController: UITableViewController {
             let price = result["price"].stringValue
             let symbol = ["symbol" : id, "price" : price]
             symbols.append(symbol)
-            
-            
         }
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            [unowned self] in
+            self.tableView.reloadData()
+        }
     }
+    
     func loadError() {
         let alert = UIAlertController(title: "Loading Error", message: "There was a problem loading the feed", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated:  true, completion: nil)
+        self.present(alert, animated:  true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +54,7 @@ class SymbolsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let symbol = symbols[indexPath.row]
-        cell.textLabel?.text = symbol["name"]
+        cell.textLabel?.text = symbol["symbol"]
         cell.detailTextLabel?.text = symbol["price"]
         return cell
     }
