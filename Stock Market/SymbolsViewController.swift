@@ -42,6 +42,17 @@ class SymbolsViewController: UITableViewController {
         present(alert, animated:  true, completion: nil)
     }
     
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return symbols.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let symbol = symbols[indexPath.row]
+        cell.textLabel?.text = symbol["name"]
+        cell.detailTextLabel?.text = symbol["price"]
+        return cell
+    }
+    
 }
 
