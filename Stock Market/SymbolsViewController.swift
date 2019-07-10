@@ -62,7 +62,8 @@ class SymbolsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dvc = segue.destination as! StockViewController
         let index = tableView.indexPathForSelectedRow?.row
-        dvc.symbols = symbols[index!]
+        let symbol = symbols[index!]
+        dvc.symbols = symbol["symbol"]!
     }
 }
 

@@ -10,18 +10,19 @@ import UIKit
 
 class StockViewController: UITableViewController {
     
-    var stocks = [[String: String]]()
-    var symbols = [String: String]()
+    var stocks = [String]()
+    var symbols = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Stock"
-        let query = "https://financialmodelingprep.com/api/v3/company/profile/\(symbols["id"])"
+        let query = "https://financialmodelingprep.com/api/v3/company/profile/\(symbols)"
+        print(query)
         DispatchQueue.global(qos: .userInitiated).async {
             [unowned self] in
             if let url = URL(string: query) {
                 if let data = try? Data(contentsOf: url) {
                     let json = try! JSON(data)
+                    print("here?")
                     self.parse(json: json)
                     return
                 }
@@ -30,13 +31,18 @@ class StockViewController: UITableViewController {
         }
     }
     func parse(json: JSON) {
-        for result in json["profile"].arrayValue {
-            let mktCap = result["mktCap"].stringValue
-            let price = result["price"].stringValue
-            let compName = result["companyName"].stringValue
-            let stock = ["mktCap" : mktCap, "price" : price, "companyName" : compName]
-            stocks.append(stock)
-        }
+        var unFormattedmktCap = Double(json["profile"]["mktCap"].stringValue)!
+        unFormattedmktCap /= 1000000000
+        let mktCap = String(format: "Mkt Capital: %.2f Billions", unFormattedmktCap )
+        let price = "Current Price: \(json["profile"]["price"].stringValue)"
+        let compName = json["profile"]["companyName"].stringValue
+        let description = json["profile"]["description"].stringValue
+        let website =  (json["profile"]["website"].stringValue)
+        stocks.append(compName)
+        stocks.append(price)
+        stocks.append(mktCap)
+        stocks.append(description)
+        stocks.append(website)
         DispatchQueue.main.async {
             [unowned self] in
             self.tableView.reloadData()
@@ -54,12 +60,16 @@ class StockViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
         let stock = stocks[indexPath.row]
-        cell.textLabel?.text = stock["symbol"]
-        cell.detailTextLabel?.text = stock["price"]
+        cell.textLabel?.text = stocks[indexPath.row]
         return cell
     }
     
 }
+//let symbol = symbols[indexPath.row]
+//cell.textLabel?.text = symbol["symbol"]
+//cell.detailTextLabel?.text = symbol["price"]
+////return cell
+//articles[indexPath.row]["url"]!
 
